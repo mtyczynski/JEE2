@@ -49,7 +49,7 @@ $(document).ready(function()
 			for (var i = 0; i < d; i++)
 				{
 				tr = $('<tr/>');
-				tr.append("<td>"+data[i].name+"</td>");
+				tr.append("<td>"+data[i].cureName+"</td>");
 				tr.append("<td>"+data[i].description+"</td>");
 				tr.append("<td>"+data[i].person.id+"</td>");
 				td = $('<td/>');
