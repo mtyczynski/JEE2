@@ -51,7 +51,7 @@ $(document).ready(function()
 				tr.append("<td>"+data[i].firstName+"</td>");
 				tr.append("<td>"+data[i].lastName+"</td>");
 				td = $('<td/>');
-				td.append("<buttom href='edit/"+data[i].id+"'>Edit </buttom><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Remove</buttom>");
+				td.append("<a href='${pageContext.request.contextPath}/EditPerson/"+data[i].id+"' class='btn btn-default'>Edit </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Remove</buttom>");
 				tr.append(td);
 				$(table).append(tr);
 				}
