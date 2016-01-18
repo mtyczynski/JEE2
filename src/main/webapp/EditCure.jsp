@@ -20,9 +20,9 @@ $(document).ready(function()
 					type: 'PUT',
 					data:
 					{
-						name: document.getElementById('name').value,
+						cureName: document.getElementById('cureName').value,
 						description: document.getElementById('description').value,
-d						idPerson: document.getElementById('idPerson').value,
+						idPerson: document.getElementById('idPerson').value
 					
 					},
 					success: function() { document.location.replace("${pageContext.request.contextPath}/cure.jsp"); },
@@ -47,15 +47,15 @@ d						idPerson: document.getElementById('idPerson').value,
 
             <form method="post" class="form-horizontal">
                 <div class="form-group">
-                    <label for="firstName" class="col-sm-2 control-label">Name:</label>
+                    <label for="cureName" class="col-sm-2 control-label">Name:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="name" id="name" value="${CureEdit.name}" class="form-control">
+                        <input type="text" name="cureName" id="cureName" value="${CureEdit.cureName}" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="lastName" class="col-sm-2 control-label">Description:</label>
+                    <label for="description" class="col-sm-2 control-label">Description:</label>
 
                     <div class="col-sm-10">
                         <input type="text" name="description" id="description" value="${CureEdit.description}" class="form-control">
@@ -65,7 +65,7 @@ d						idPerson: document.getElementById('idPerson').value,
                     <label for="idPerson" class="col-sm-2 control-label">Person:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="idPerson" id="idPerson" value="${CureEdit.Person.id}" class="form-control">
+                        <input type="text" name="idPerson" id="idPerson" value="${CureEdit.person.id}" class="form-control">
                     </div>
                 </div>
 

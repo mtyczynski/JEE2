@@ -17,7 +17,7 @@ private Manager m;
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 String link = request.getPathInfo();
-request.setAttribute("CureEdit", m.getPersonFromID(Long.parseLong(link.substring(link.lastIndexOf("/") + 1, link.length()))));
+request.setAttribute("CureEdit", m.getCureFromID(Long.parseLong(link.substring(link.lastIndexOf("/") + 1, link.length()))));
 request.getRequestDispatcher("/EditCure.jsp").forward(request, response);
 }
 }
