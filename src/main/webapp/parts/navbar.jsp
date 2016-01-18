@@ -2,6 +2,8 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">Pharmacy</a>
+	    <a class="navbar-brand" href="${pageContext.request.contextPath}/person.jsp">Persons</a>
+	    <a class="navbar-brand" href="${pageContext.request.contextPath}/cure.jsp">Cures</a>
         </div>
     </div>
 </div>
