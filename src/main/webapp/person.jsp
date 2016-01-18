@@ -33,7 +33,34 @@
 		}
 	);
 </script>
-
+<script>
+$(document).ready(function()
+{
+	$.ajax
+		(
+		{
+		url: '${pageContext.request.contextPath}/rest/test/getAllPersons',
+		type: 'GET',
+		success: function(data)
+			{
+			var d = data.length;
+			var table = document.getElementById("table");
+			for (var i = 0; i < d; i++)
+				{
+				tr = $('<tr/>');
+				tr.append("<td>"+data[i].firstName+"</td>");
+				tr.append("<td>"+data[i].lastName+"</td>");
+				td = $('<td/>');
+				td.append("<a href='edit/"+data[i].id+"'>Edit </a><a href='remove/"+data[i].id+"'> Remove</a>");
+				tr.append(td);
+				$(table).append(tr);
+				}
+			}
+		}
+		);
+}
+);
+</script>
 <body>
 
 <jsp:include page="parts/navbar.jsp" />
@@ -43,42 +70,21 @@
         <h3>Persons</h3>
         <br/>
 
-        <c:choose>
-            <c:when test="${persons.size() > 0}">
-                <table class="table table-striped">
+                <table id="table" class="table table-striped">
                     <tr>
                      
                         <th>First Name</th>
                         <th>Last Name</th>
                         
                     </tr>
-                    <c:forEach var="person" items="${persons}" varStatus="loopCounter">
                         <tr>
                             
                             <td>${person.firstName}</td>
                             <td>${person.lastName}</td>
                             <td>
-                                <a href="view/${person.id}">
-                                    View
-                                </a>
-                                |
-                                <a href="edit/${person.id}">
-                                    Edit
-                                </a>
-                                |
-                                <a href="remove/${person.id}">
-                                    Remove
-                                </a>
+
                             </td>
                         </tr>
-                    </c:forEach>
-                </table>
-
-            </c:when>
-            <c:otherwise>
-                <div class="well">No messages yet!</div>
-            </c:otherwise>
-        </c:choose>
     </div>
 
     <div class="row">
