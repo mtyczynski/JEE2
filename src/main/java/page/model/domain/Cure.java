@@ -21,7 +21,7 @@ public class Cure implements java.io.Serializable{
         this.id = id;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_person", nullable = false)
     public Person getPerson() {
         return person;

@@ -21,9 +21,9 @@
 				type: 'POST',
 				data:
 					{
-					firstName: document.getElementById('name').value,
-					lastName: document.getElementById('description').value
-					idPerson: document.getElementById('Person.id').value
+					cureName: document.getElementById('cureName').value,
+					description: document.getElementById('description').value,
+					idPerson: document.getElementById('idPerson').value
 					},
 				success: function() { document.location.replace("${pageContext.request.contextPath}/cure.jsp"); },
 				error: function() { alert("Wrong data!"); }
@@ -51,7 +51,7 @@ $(document).ready(function()
 				tr = $('<tr/>');
 				tr.append("<td>"+data[i].name+"</td>");
 				tr.append("<td>"+data[i].description+"</td>");
-				tr.append("<td>"+data[i].Person.id+"</td>");
+				tr.append("<td>"+data[i].person.id+"</td>");
 				td = $('<td/>');
 				td.append("<a href='${pageContext.request.contextPath}/EditCure/"+data[i].id+"' class='btn btn-default'>Edit </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Remove</buttom>");
 				tr.append(td);
@@ -103,10 +103,10 @@ $(document).ready(function()
 
             <form  method="post" class="form-horizontal">
                 <div class="form-group">
-                    <label for="name" class="col-sm-2 control-label">Name:</label>
+                    <label for="cureName" class="col-sm-2 control-label">Name:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="name" id="name" class="form-control">
+                        <input type="text" name="cureName" id="cureName" class="form-control">
                     </div>
                 </div>
 
@@ -114,14 +114,14 @@ $(document).ready(function()
                     <label for="description" class="col-sm-2 control-label">Description:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="lastName" id="lastName" class="form-control">
+                        <input type="text" name="description" id="description" class="form-control">
                     </div>
                 </div>
   		 <div class="form-group">
                     <label for="idPerson" class="col-sm-2 control-label">Person:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="idPerson" id="idPerson" value="${CureEdit.Person.id}" class="form-control">
+                        <input type="text" name="idPerson" id="idPerson" class="form-control">
                     </div>
                 </div>
 
