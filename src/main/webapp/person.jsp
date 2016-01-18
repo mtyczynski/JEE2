@@ -51,7 +51,7 @@ $(document).ready(function()
 				tr.append("<td>"+data[i].firstName+"</td>");
 				tr.append("<td>"+data[i].lastName+"</td>");
 				td = $('<td/>');
-				td.append("<a href='edit/"+data[i].id+"'>Edit </a><a href='remove/"+data[i].id+"'> Remove</a>");
+				td.append("<buttom href='edit/"+data[i].id+"'>Edit </buttom><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Remove</buttom>");
 				tr.append(td);
 				$(table).append(tr);
 				}
@@ -60,6 +60,19 @@ $(document).ready(function()
 		);
 }
 );
+</script>
+<script>
+	function del(id)
+	{
+		$.ajax
+		(
+		{
+			url: '${pageContext.request.contextPath}/rest/test/deletePerson/'+id,
+			type: 'DELETE',
+			success: function() { document.location.reload(true);}
+		}
+	);
+}
 </script>
 <body>
 
