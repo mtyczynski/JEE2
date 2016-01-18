@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,7 @@ $(document).ready(function()
 						idPerson: document.getElementById('idPerson').value
 					
 					},
-					success: function() { document.location.replace("${pageContext.request.contextPath}/cure.jsp"); },
+					success: function() { document.location.replace("${pageContext.request.contextPath}/Cure"); },
 					error: function() { alert("Wrong Data!"); }
 				}
 			);
@@ -65,7 +66,11 @@ $(document).ready(function()
                     <label for="idPerson" class="col-sm-2 control-label">Person:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="idPerson" id="idPerson" value="${CureEdit.person.id}" class="form-control">
+			<select type="text" name="idPerson" id="idPerson" class="form-control" required>
+				<c:forEach var="pFK" items="${PersonFK}" varStatus="loopCounter">
+						<option value="${pFK.id}">${pFK.firstName} ${pFK.lastName}</option>
+				</c:forEach>
+			</select>
                     </div>
                 </div>
 

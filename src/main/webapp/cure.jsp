@@ -25,7 +25,7 @@
 					description: document.getElementById('description').value,
 					idPerson: document.getElementById('idPerson').value
 					},
-				success: function() { document.location.replace("${pageContext.request.contextPath}/cure.jsp"); },
+				success: function() { document.location.replace("${pageContext.request.contextPath}/Cure"); },
 				error: function() { alert("Wrong data!"); }
 				}
 			);
@@ -51,7 +51,7 @@ $(document).ready(function()
 				tr = $('<tr/>');
 				tr.append("<td>"+data[i].cureName+"</td>");
 				tr.append("<td>"+data[i].description+"</td>");
-				tr.append("<td>"+data[i].person.id+"</td>");
+				tr.append("<td>"+data[i].person.firstName+" "+data[i].person.lastName+"</td>");
 				td = $('<td/>');
 				td.append("<a href='${pageContext.request.contextPath}/EditCure/"+data[i].id+"' class='btn btn-default'>Edit </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Remove</buttom>");
 				tr.append(td);
@@ -121,15 +121,18 @@ $(document).ready(function()
                     <label for="idPerson" class="col-sm-2 control-label">Person:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="idPerson" id="idPerson" class="form-control">
+			<select type="text" name="idPerson" id="idPerson" class="form-control" required>
+				<c:forEach var="pFK" items="${PersonFK}" varStatus="loopCounter">
+						<option value="${pFK.id}">${pFK.firstName} ${pFK.lastName}</option>
+				</c:forEach>
+			</select>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button id="btnADD" type="submit" class="btn btn-default">Add</button>
-                    </div>
-                </div>
+		</div>
+		 <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button id="btnADD" type="submit" class="btn btn-default">Add</button>
+			</div>
+		</div>
             </form>
         </div>
     </div>

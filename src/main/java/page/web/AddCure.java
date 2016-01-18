@@ -10,15 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import page.model.service.*;
 import page.model.domain.*;
-@WebServlet(urlPatterns = "/EditCure/*")
-public class EditCure extends HttpServlet{
+@WebServlet(urlPatterns = "/Cure/*")
+public class AddCure extends HttpServlet{
 @EJB
 private Manager m;
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-String link = request.getPathInfo();
-request.setAttribute("CureEdit", m.getCureFromID(Long.parseLong(link.substring(link.lastIndexOf("/") + 1, link.length()))));
 request.setAttribute("PersonFK", m.getAllPersons());
-request.getRequestDispatcher("/EditCure.jsp").forward(request, response);
+request.getRequestDispatcher("/cure.jsp").forward(request, response);
 }
 }
