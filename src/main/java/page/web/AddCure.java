@@ -1,6 +1,4 @@
-package com.zakladPogrzebowy.web;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+package page.web;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
